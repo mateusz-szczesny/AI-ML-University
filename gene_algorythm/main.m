@@ -9,13 +9,13 @@ pkg load communications;
 x_range = [0, 127];
 xn = 127;
 # count of generations
-gens = 1000;
+gens = 100;
 # count of chromosomes
-N = 20;
+N = 50;
 # interbreeding ratio
 PK = 0.8;
 # mutation ratio
-PM = 0.1;
+PM = 0.2;
 # funtion to optimize
 f = @(x) 2 * (x^2 + 1);
 # INPUTS - END
@@ -70,11 +70,10 @@ for g = 1:gens
  
    
   #STEP: MUTATION
-  for i = 1:N
-    if PM > rand()
-      locus = round((size(chromosomes, 2) - 1).*rand() + 1);
-      chromosomes(i, locus) = ~(chromosomes(i, locus));
-    end
+  random = randi([1 N], 1, 1);
+  if PM > rand()
+    locus = round((size(chromosomes, 2) - 1).*rand() + 1);
+    chromosomes(random, locus) = ~(chromosomes(random, locus));
   end
   #update of values from it's binary representation
   values = bi2de( chromosomes );

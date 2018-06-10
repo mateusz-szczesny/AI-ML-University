@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import time
 from tsp_utils import generate_routes, calculate_costs, points_for_route, generate_distances, nna
 
-NUMBER_OF_CITIES = 7
+NUMBER_OF_CITIES = 9
 DIMENSIONS = 2
 MAXIMUM_DISTANCE = 1000
 

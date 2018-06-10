@@ -38,18 +38,14 @@ def main():
             if e[i] != 0:
                 w = w + e[i] * np.transpose(X[i])
                 bias = bias + e[i]
-            print('y: ' + str(y))
 
     for i, sample in enumerate(X):
         if y[i] > 0:
             plt.scatter(sample[0], sample[1], s=120, marker='+', linewidths=2)
         else:
             plt.scatter(sample[0], sample[1], s=120, marker='_', linewidths=2)
-            
-    temp = []
-    for i in range(-20, 20):
-        temp.append(i)
-    plt.plot(temp, temp)
+
+    plt.plot(range(-20, 20), range(-20, 20))
     plt.show()
 
 

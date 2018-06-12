@@ -11,7 +11,7 @@ xn = 127;
 # count of generations
 gens = 100;
 # count of chromosomes
-N = 50;
+N = 16;
 # interbreeding ratio
 PK = 0.8;
 # mutation ratio
@@ -35,15 +35,19 @@ end
  
 #REPEAT FOR EACH GENERATION
 for g = 1:gens
-  # STEP: SELECTION -> roulette selection
+  
   for i = 1:N
-     values(i, 2) = (values(i, 1) / sum(values(:, 1))) * 100;
+     values(i, 2) = f(values(i, 1));
   end
- 
+  for i = 1:N
+     values(i, 3) = (values(i, 2) / sum(values(:, 2))) * 100;
+  end
+  
+  # STEP: SELECTION -> roulette selection
   for i = 1:N
     random = (rand()*100);
     for j = 1:N
-      probability = sum(values(1:j, 2));
+      probability = sum(values(1:j, 3));
       if random < probability
         tempValues(i) = values(j, 1);
         break;

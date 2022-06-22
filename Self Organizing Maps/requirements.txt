@@ -9,7 +9,7 @@ lazy-object-proxy==1.4.3
 llvmlite==0.32.1
 mccabe==0.6.1
 numba==0.49.1
-numpy==1.19.0
+numpy==1.22.0
 opencv-python==4.2.0.34
 pathspec==0.8.0
 pylint==2.5.2
